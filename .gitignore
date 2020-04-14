@@ -4,3 +4,4 @@
 build/
 dist/
 lmhtools.egg-info/
+test

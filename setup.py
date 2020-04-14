@@ -12,7 +12,7 @@ setup(
     version = "0.0.1",
     keywords = ("pip", "lmh","lmhtools",'liumenghua'),
     description = "lmhtools",
-    long_description = "lmhtools",
+    long_description = "Google Translate;Name processing",
     license = "MIT Licence",
 
     url = "https://github.com/mengnan254/lmhtools",
@@ -22,5 +22,5 @@ setup(
     packages = find_packages(),
     include_package_data = True,
     platforms = "any",
-    install_requires = ["PyExecJS==1.5.1","requests==2.23.0"]
+    install_requires = ["PyExecJS","requests"," numpy"]
 )

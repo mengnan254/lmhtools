@@ -7,3 +7,4 @@ lmh common tools
 @time: 2020/4/13 15:46
 """
 from .trans.google import Google
+from .name.pyname import Myname
