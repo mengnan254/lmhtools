@@ -4,3 +4,4 @@
 .gitattributes/
 .build/
 .dist/
+.lmhtools.egg-info/
