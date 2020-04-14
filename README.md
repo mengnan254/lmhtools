@@ -14,6 +14,7 @@ pip install lmh_tools
 -------------------------------------
 ``` 
 from lmhtools import Google
+g = Google()
 
 #传入列表
 content = ['i love you','you love he','he love her']
