@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "lmhtools",
-    version = "0.0.1",
+    version = "0.0.2",
     keywords = ("pip", "lmh","lmhtools",'liumenghua'),
     description = "lmhtools",
     long_description = "Google Translate;Name processing",

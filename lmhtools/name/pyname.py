@@ -12,7 +12,7 @@ from .data import ming,duoyinxing,fuxing
 
 class NamePrototype(metaclass=ABCMeta):
 
-    def __strPreprocessing(self,x):
+    def strPreprocessing(self,x):
         tR = x
         reTrimall = re.compile('\A\s*|(?<=[\u4e00-\u9fa5])\s*(?=[\u4e00-\u9fa5])|\s*\Z')
         reWtoS = re.compile('\W')
@@ -22,7 +22,7 @@ class NamePrototype(metaclass=ABCMeta):
         subtR = re.sub(reSS, ' ', subtR)
         return subtR
 
-    def __proMing(self,x):
+    def ming(self,x):
         rStr = ''
         for i in x:
             if i in ming:
@@ -31,7 +31,7 @@ class NamePrototype(metaclass=ABCMeta):
                 rStr = rStr + i
         return rStr
 
-    def __proMingJx(self,x):
+    def jxming(self,x):
         rStr = ''
         for i in x:
             if i in ming:
@@ -56,7 +56,7 @@ class Myname(NamePrototype):
         return result
 
     def jc(self,x):
-        result = self.jc(x)
+        result = self.jiancheng(x)
         if result:result = result.upper()
         return result
 
@@ -64,7 +64,7 @@ class Myname(NamePrototype):
         if not (x and x == x):
             return None
 
-        strP = self.__strPreprocessing(x)
+        strP = self.strPreprocessing(x)
 
         if len(strP) == 1:
             if strP in ming:
@@ -86,17 +86,17 @@ class Myname(NamePrototype):
         elif len(strP) >= 3:
             strI = ''
             if " " in strP:
-                return self.__proMing(strP)
+                return self.ming(strP)
             else:
                 if strP[:2] in fuxing:
                     strI = strI + fuxing[strP[:2]] + ' '
                     strP = strP[2:]
-                    strI = strI + self.__proMing(strP)
+                    strI = strI + self.ming(strP)
                     return strI
                 elif strP[:1] in duoyinxing:
                     strI = strI + duoyinxing[strP[:1]] + ' '
                     strP = strP[1:]
-                    strI = strI + self.__proMing(strP)
+                    strI = strI + self.ming(strP)
                     return strI
                 else:
                     if strP[:1] in ming:
@@ -104,14 +104,14 @@ class Myname(NamePrototype):
                     else:
                         strI = strI + strP[:1]
                     strP = strP[1:]
-                    strI = strI + self.__proMing(strP)
+                    strI = strI + self.ming(strP)
                     return strI
 
     def jiancheng(self,x):
         if not (x and x == x):
             return None
 
-        strP = self.__strPreprocessing(x)
+        strP = self.strPreprocessing(x)
 
         if len(strP) == 1:
             if strP in ming:
@@ -133,17 +133,17 @@ class Myname(NamePrototype):
         elif len(strP) >= 3:
             strI = ''
             if " " in strP:
-                return self.__proMingJx(strP)
+                return self.jxming(strP)
             else:
                 if strP[:2] in fuxing:
                     strI = strI + fuxing[strP[:2]] + ' '
                     strP = strP[2:]
-                    strI = strI + self.__proMingJx(strP)
+                    strI = strI + self.jxming(strP)
                     return strI
                 elif strP[:1] in duoyinxing:
                     strI = strI + duoyinxing[strP[:1]] + ' '
                     strP = strP[1:]
-                    strI = strI + self.__proMingJx(strP)
+                    strI = strI + self.jxming(strP)
                     return strI
                 else:
                     if strP[:1] in ming:
@@ -151,7 +151,7 @@ class Myname(NamePrototype):
                     else:
                         strI = strI + strP[:1]
                     strP = strP[1:]
-                    strI = strI + self.__proMingJx(strP)
+                    strI = strI + self.jxming(strP)
                     return strI
 
     @staticmethod
